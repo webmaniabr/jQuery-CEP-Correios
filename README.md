@@ -28,11 +28,11 @@ jQuery(function($){
 
 - **app_key**: Informe o app_key da sua aplicação dos Correios.
 - **app_secret**: Informe o app_secret da sua aplicação dos Correios.
-- **cep**: Informe a classe ou id do CEP. <code>Exemplo: '#cep'</code>
-- **endereco**: Informe a classe ou id do Endereço. <code>Exemplo: '#endereco'</code>
-- **bairro**: Informe a classe ou id do Bairro. <code>Exemplo: '#bairro'</code>
-- **cidade**: Informe a classe ou id do Cidade. <code>Exemplo: '#cidade'</code>
-- **uf**: Informe a classe ou id do Estado. <code>Exemplo: '#uf'</code>
+- **cep**: Informe a classe ou id do input CEP. <code>Exemplo: '#cep'</code>
+- **endereco**: Informe a classe ou id do input Endereço. <code>Exemplo: '#endereco'</code>
+- **bairro**: Informe a classe ou id do input Bairro. <code>Exemplo: '#bairro'</code>
+- **cidade**: Informe a classe ou id do input Cidade. <code>Exemplo: '#cidade'</code>
+- **uf**: Informe a classe ou id do input Estado. <code>Exemplo: '#uf'</code>
 
 ## Suporte
 
