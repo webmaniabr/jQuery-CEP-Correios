@@ -1,4 +1,4 @@
-# CEP Correios para jQuery
+# jQuery CEP Correios
 
 Utilize o jQuery da WebmaniaBR® no CDN Amazon CloudFront para consultas Ajax nos Correios **com preenchimento automático do formulário**.
 
