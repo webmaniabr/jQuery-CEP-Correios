@@ -13,8 +13,8 @@ Obtenha as credenciais de acesso **grátis e de uso ilimitado da sua aplicação
 Primeiro, adicione o jQuery e o javascript dos Correios antes da tag <code>&lt;/body&gt;</code>:
 
 ```javascript
-<script src="jquery.js"></script>;
-<script src="//d3rjkex7r35ruf.cloudfront.net/latest/jquery.correios.min.js"></script>;
+<script src="jquery.js"></script>
+<script src="//d3rjkex7r35ruf.cloudfront.net/latest/jquery.correios.min.js"></script>
 ```
 
 Em seguida, inicie o javascript informando as suas credenciais de acesso e os campos do formulário para o preenchimento automático:
