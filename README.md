@@ -33,7 +33,7 @@ jQuery(function($){
 - **bairro**: Informe a classe ou id do input Bairro. <code>Exemplo: '#bairro'</code>
 - **cidade**: Informe a classe ou id do input Cidade. <code>Exemplo: '#cidade'</code>
 - **uf**: Informe a classe ou id do input Estado. <code>Exemplo: '#uf'</code>
-- **loading**: Informe a classe ou id da div de carregamento. <code>Exemplo: '#loading'</code>
+- **loading**: Informe a classe ou id da div da Imagem do loading. <code>Exemplo: '#loading'</code>
 
 ## Suporte
 
