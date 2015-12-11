@@ -22,7 +22,7 @@ Em seguida, inicie o javascript informando as suas credenciais de acesso e os ca
 ```
 jQuery(function($){
     correios.init( 'app_key', 'app_secret' );
-    $('cep').correios( 'endereco', 'bairro', 'cidade', 'uf' );
+    $('cep').correios( 'endereco', 'bairro', 'cidade', 'uf', 'loading' );
 });
 ```
 
@@ -33,6 +33,7 @@ jQuery(function($){
 - **bairro**: Informe a classe ou id do input Bairro. <code>Exemplo: '#bairro'</code>
 - **cidade**: Informe a classe ou id do input Cidade. <code>Exemplo: '#cidade'</code>
 - **uf**: Informe a classe ou id do input Estado. <code>Exemplo: '#uf'</code>
+- **loading**: Informe a classe ou id da div de carregamento. <code>Exemplo: '#loading'</code>
 
 ## Suporte
 
