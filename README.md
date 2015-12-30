@@ -6,7 +6,7 @@ Documentação: https://webmaniabr.com/docs/rest-api-correios/
 
 ## Requisitos
 
-Obtenha as credenciais de acesso **grátis e de uso ilimitado da sua aplicação**. Acesse: http://webmania.me/1I7z7DG
+Obtenha as credenciais de acesso **grátis e de uso ilimitado da sua aplicação**. Acesse: https://webmaniabr.com/docs/rest-api-correios/#autenticacao
 
 ## Utilização
 
