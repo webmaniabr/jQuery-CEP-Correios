@@ -2,7 +2,15 @@
 // GitHub: https://github.com/webmaniabr/jQuery-CEP-Correios
 // Author: WebmaniaBR
 // Author URI: webmaniabr.com
-(function( $ ){
+(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function( $ ){
     
     correios = {
         init: function( app_key, app_secret ) {
@@ -49,4 +57,4 @@
        return this;
        
    }; 
-})( jQuery );
+}));
