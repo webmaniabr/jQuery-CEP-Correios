@@ -1,6 +1,6 @@
 # jQuery CEP Correios
 
-Utilize o jQuery da WebmaniaBR® no CDN Amazon CloudFront para consultas Ajax nos Correios **com preenchimento automático do formulário**.
+Utilize o jQuery da WebmaniaBR® para consultas Ajax nos Correios **com preenchimento automático do formulário**.
 
 Documentação: https://webmaniabr.com/docs/rest-api-correios/
 
@@ -14,7 +14,7 @@ Primeiro, adicione o jQuery e o javascript dos Correios antes da tag <code>&lt;/
 
 ```javascript
 <script src="jquery.js"></script>
-<script src="//d3rjkex7r35ruf.cloudfront.net/latest/jquery.correios.min.js"></script>
+<script src="jquery.correios.min.js"></script>
 ```
 
 Em seguida, inicie o javascript informando as suas credenciais de acesso e os campos do formulário para o preenchimento automático:
