@@ -34,7 +34,3 @@ jQuery(function($){
 - **cidade**: Informe a classe ou id do input Cidade. <code>Exemplo: '#cidade'</code>
 - **uf**: Informe a classe ou id do input Estado. <code>Exemplo: '#uf'</code>
 - **loading**: Informe a classe ou id da Imagem. <code>Exemplo: '#loading'</code>
-
-## Suporte
-
-Qualquer dúvida estamos à disposição e abertos para melhorias e sugestões, em breve teremos um fórum para discussões. Envie um e-mail para github@webmaniabr.com.
