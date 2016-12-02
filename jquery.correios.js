@@ -52,7 +52,7 @@
        
        $(this).on('keyup', function(){
            
-           cep = $(this).val().replace('.','').replace('-', '').replace('_', '');
+           cep = $(this).val().replace(/[^0-9]/g,'');
            
            if (cep.length == 8){
                
