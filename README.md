@@ -22,7 +22,7 @@ Em seguida, inicie o javascript informando as suas credenciais de acesso e os ca
 ```
 jQuery(function($){
     correios.init( 'app_key', 'app_secret' );
-    $('cep').correios( 'endereco', 'bairro', 'cidade', 'uf', 'loading' );
+    $('cep').correios( 'endereco', 'bairro', 'cidade', 'uf', 'loading', true );
 });
 ```
 
@@ -34,3 +34,13 @@ jQuery(function($){
 - **cidade**: Informe a classe ou id do input Cidade. <code>Exemplo: '#cidade'</code>
 - **uf**: Informe a classe ou id do input Estado. <code>Exemplo: '#uf'</code>
 - **loading**: Informe a classe ou id da Imagem. <code>Exemplo: '#loading'</code>
+- **readonly**: Realiza o bloqueio dos campos Endereço, Bairro, Cidade e Estado impedindo que o usuário altere as informações preenchidas automaticamente. Deve ser informado o valor boolean (true ou false). <code>Exemplo: true</code>
+
+## CSS 
+
+Caso utilize a opção **readonly**, sugerimos adicionar a seguinte CSS para que o usuário identifique os campos bloqueados no Desktop e Smartphone:
+
+```
+input[readonly], input[readyonly=readonly], select[readonly], select[readonly=readonly] { background: #efefef !important; color: #666666 !important; border-color:#dfdcde !important; cursor:not-allowed; }
+select[readonly], select[readonly=readonly] { pointer-events: none; touch-action: none; }
+```
