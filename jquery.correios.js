@@ -81,21 +81,21 @@
                     if (c_endereco || $( endereco ).val()) {
 
                       $( endereco ).val( data.endereco );
-                      if (c_readonly && data.endereco) $( endereco ).attr('readonly', 'readonly');
+                      if (typeof c_readonly === 'boolean' && c_readonly == true && data.endereco) $( endereco ).attr('readonly', 'readonly');
                       else $( endereco ).removeAttr('readonly');
 
                     }
                     if (c_bairro || $( bairro ).val()) {
 
                       $( bairro ).val( data.bairro );
-                      if (c_readonly && data.bairro) $( bairro ).attr('readonly', 'readonly');
+                      if (typeof c_readonly === 'boolean' && c_readonly == true && data.bairro) $( bairro ).attr('readonly', 'readonly');
                       else $( bairro ).removeAttr('readonly');
 
                     }
                     if (c_cidade || $( cidade ).val()) {
 
                       $( cidade ).val( data.cidade );
-                      if (c_readonly && data.cidade) $( cidade ).attr('readonly', 'readonly');
+                      if (typeof c_readonly === 'boolean' && c_readonly == true && data.cidade) $( cidade ).attr('readonly', 'readonly');
                       else $( cidade ).removeAttr('readonly');
 
                     }
@@ -126,9 +126,9 @@
 
                       });
 
-                      if (c_readonly) $( uf ).trigger('correios_clean_select');
+                      if (typeof c_readonly === 'boolean' && c_readonly == true) $( uf ).trigger('correios_clean_select');
                       $( uf ).find('option[value="'+data.uf+'"]').attr('selected', 'selected');
-                      if (c_readonly && data.uf) $( uf ).find(':not(:selected)').prop('disabled',true);
+                      if (typeof c_readonly === 'boolean' && c_readonly == true && data.uf) $( uf ).find(':not(:selected)').prop('disabled',true);
                       $( uf ).val(data.uf).trigger('change');
                       if (typeof $.fn.select2 !== 'undefined') $( uf ).select2();
 
