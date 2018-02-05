@@ -37,7 +37,7 @@
         }
     }
 
-   $.fn.correios = function( endereco, bairro, cidade, uf, loading, readonly ) {
+   $.fn.correios = function( endereco, bairro, cidade, uf, loading, readonly, numero ) {
 
        var err;
        if(typeof correios_app_key === 'undefined') { console.log('Informe o app_key da sua aplicação dos Correios.'); err = true; }
@@ -50,6 +50,7 @@
        window.c_uf = uf;
        window.c_loading = loading;
        window.c_readonly = readonly;
+       window.c_numero = numero;
 
        $(this).on('keyup', function(){
 
@@ -131,6 +132,7 @@
                       if (typeof c_readonly === 'boolean' && c_readonly == true && data.uf) $( uf ).find(':not(:selected)').prop('disabled',true);
                       $( uf ).val(data.uf).trigger('change');
                       if (typeof $.fn.select2 !== 'undefined') $( uf ).select2();
+                      if(c_numero) $(c_numero).focus();
 
                     }
 
