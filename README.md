@@ -35,7 +35,7 @@ jQuery(function($){
 - **uf**: Informe a classe ou id do input Estado. <code>Exemplo: '#uf'</code>
 - **loading**: Informe a classe ou id da Imagem. <code>Exemplo: '#loading'</code>
 - **readonly**: Realiza o bloqueio dos campos Endereço, Bairro, Cidade e Estado impedindo que o usuário altere as informações preenchidas automaticamente. Deve ser informado o valor boolean (true ou false). <code>Exemplo: true</code>
-- **numero**: Informe a classe ou id do input NÚMERO para receber o foco após a consulta. <code>Exemplo: '#numero'</code>
+- **numero**: Informe a classe ou id do input Número para receber o foco após a consulta. <code>Exemplo: '#numero'</code>
 
 ## CSS 
 
