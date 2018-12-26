@@ -45,8 +45,16 @@ jQuery(function($){
 Caso utilize a opção **readonly**, sugerimos adicionar a seguinte CSS para que o usuário identifique os campos bloqueados no Desktop e Smartphone:
 
 ```
-input[readonly], input[readyonly=readonly], select[readonly], select[readonly=readonly] { background: #efefef !important; color: #666666 !important; border-color:#dfdcde !important; cursor:not-allowed; }
-select[readonly], select[readonly=readonly] { pointer-events: none; touch-action: none; }
+input[readonly], input[readyonly=readonly], select[readonly], select[readonly=readonly] {
+  background: #efefef !important;
+  color: #666666 !important;
+  border-color:#dfdcde !important;
+  cursor:not-allowed;
+}
+select[readonly], select[readonly=readonly] {
+  pointer-events: none;
+  touch-action: none;
+}
 ```
 
 ## TRIGGER
