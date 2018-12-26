@@ -1,4 +1,4 @@
-// jQuery CEP Correios v1.1
+// jQuery CEP Correios v2.0
 // GitHub: https://github.com/webmaniabr/jQuery-CEP-Correios
 // Author: WebmaniaBR
 // Author URI: webmaniabr.com
@@ -37,7 +37,7 @@
         }
     }
 
-   $.fn.correios = function( endereco, bairro, cidade, uf, loading, readonly, numero ) {
+   $.fn.correios = function( endereco, bairro, cidade, uf, loading, readonly, numero, ibge, trigger_error, trigger_success ) {
 
        var err;
        if(typeof correios_app_key === 'undefined') { console.log('Informe o app_key da sua aplicação dos Correios.'); err = true; }
@@ -51,6 +51,9 @@
        window.c_loading = loading;
        window.c_readonly = readonly;
        window.c_numero = numero;
+       window.c_ibge = ibge;
+       window.c_trigger_error = trigger_error;
+       window.c_trigger_success = trigger_success;
 
        $(this).on('keyup', function(){
 
@@ -77,6 +80,20 @@
                 if (c_loading) $( c_loading ).show();
 
                 $.getJSON( "https://webmaniabr.com/api/1/cep/"+cep+"/?app_key="+correios_app_key+"&app_secret="+correios_app_secret, function( data ) {
+
+                    if (c_trigger_error && data.error){
+
+                      $(document).trigger(c_trigger_error);
+
+                    } else if (data.error){
+
+                      console.log('CEP Error: ' + data.error);
+
+                    } else if (c_trigger_success){
+
+                      $(document).trigger(c_trigger_success);
+
+                    }
 
                     if (c_loading) $( c_loading ).hide();
                     if (c_endereco || $( endereco ).val()) {
@@ -120,12 +137,18 @@
                         data.uf = select_options[states[data.uf]];
 
                       }
-
                       $( uf ).on('correios_clean_select', function(){
 
                         $( uf ).find('option').removeAttr('disabled').removeAttr('selected');
 
                       });
+                      if (c_ibge || $( ibge ).val()) {
+
+                        $( ibge ).val( data.ibge ).trigger('change');
+                        if (typeof c_readonly === 'boolean' && c_readonly == true && data.ibge) $( ibge ).attr('readonly', 'readonly');
+                        else $( ibge ).removeAttr('readonly');
+
+                      }
 
                       if (typeof c_readonly === 'boolean' && c_readonly == true) $( uf ).trigger('correios_clean_select');
                       $( uf ).find('option[value="'+data.uf+'"]').attr('selected', 'selected');
