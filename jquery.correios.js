@@ -43,23 +43,27 @@
        if(typeof correios_app_key === 'undefined') { console.log('Informe o app_key da sua aplicação dos Correios.'); err = true; }
        if(typeof correios_app_secret === 'undefined') { console.log('Informe o app_secret da sua aplicação dos Correios.'); err = true; }
        if (err) return false;
+       if (!window.cep) window.cep = [];
 
-       window.c_endereco = endereco;
-       window.c_bairro = bairro;
-       window.c_cidade = cidade;
-       window.c_uf = uf;
-       window.c_loading = loading;
-       window.c_readonly = readonly;
-       window.c_numero = numero;
-       window.c_ibge = ibge;
-       window.c_trigger_error = trigger_error;
-       window.c_trigger_success = trigger_success;
+       window.cep[this.selector] = {
+         'c_endereco': endereco,
+         'c_bairro': bairro,
+         'c_cidade': cidade,
+         'c_uf': uf,
+         'c_loading': loading,
+         'c_readonly': readonly,
+         'c_numero': numero,
+         'c_ibge': ibge,
+         'c_trigger_error': trigger_error,
+         'c_trigger_success': trigger_success
+       };
 
        $(this).on('keyup', function(){
 
-           cep = $(this).val().replace(/[^0-9]/g,'');
+           input = $(this).val().replace(/[^0-9]/g,'');
+           selector = '#' + $(this).attr('id');
 
-           if (cep.length == 8){
+           if (input.length == 8){
 
                 if (localStorage.getItem('correios_request')) {
 
@@ -77,47 +81,47 @@
 
                 }
 
-                if (c_loading) $( c_loading ).show();
+                if (cep[selector].c_loading) $( cep[selector].c_loading ).show();
 
-                $.getJSON( "https://webmaniabr.com/api/1/cep/"+cep+"/?app_key="+correios_app_key+"&app_secret="+correios_app_secret, function( data ) {
+                $.getJSON( "https://webmaniabr.com/api/1/cep/"+input+"/?app_key="+correios_app_key+"&app_secret="+correios_app_secret, function( data ) {
 
-                    if (c_trigger_error && data.error){
+                    if (cep[selector].c_trigger_error && data.error){
 
-                      $(document).trigger(c_trigger_error);
+                      $(document).trigger(cep[selector].c_trigger_error);
 
                     } else if (data.error){
 
                       console.log('CEP Error: ' + data.error);
 
-                    } else if (c_trigger_success){
+                    } else if (cep[selector].c_trigger_success){
 
-                      $(document).trigger(c_trigger_success);
+                      $(document).trigger(cep[selector].c_trigger_success);
 
                     }
 
-                    if (c_loading) $( c_loading ).hide();
-                    if (c_endereco || $( endereco ).val()) {
+                    if (cep[selector].c_loading) $( cep[selector].c_loading ).hide();
+                    if (cep[selector].c_endereco || $( endereco ).val()) {
 
                       $( endereco ).val( data.endereco );
-                      if (typeof c_readonly === 'boolean' && c_readonly == true && data.endereco) $( endereco ).attr('readonly', 'readonly');
+                      if (typeof cep[selector].c_readonly === 'boolean' && cep[selector].c_readonly == true && data.endereco) $( endereco ).attr('readonly', 'readonly');
                       else $( endereco ).removeAttr('readonly');
 
                     }
-                    if (c_bairro || $( bairro ).val()) {
+                    if (cep[selector].c_bairro || $( bairro ).val()) {
 
                       $( bairro ).val( data.bairro );
-                      if (typeof c_readonly === 'boolean' && c_readonly == true && data.bairro) $( bairro ).attr('readonly', 'readonly');
+                      if (typeof cep[selector].c_readonly === 'boolean' && cep[selector].c_readonly == true && data.bairro) $( bairro ).attr('readonly', 'readonly');
                       else $( bairro ).removeAttr('readonly');
 
                     }
-                    if (c_cidade || $( cidade ).val()) {
+                    if (cep[selector].c_cidade || $( cidade ).val()) {
 
                       $( cidade ).val( data.cidade );
-                      if (typeof c_readonly === 'boolean' && c_readonly == true && data.cidade) $( cidade ).attr('readonly', 'readonly');
+                      if (typeof cep[selector].c_readonly === 'boolean' && cep[selector].c_readonly == true && data.cidade) $( cidade ).attr('readonly', 'readonly');
                       else $( cidade ).removeAttr('readonly');
 
                     }
-                    if (c_uf || $( uf ).val()) {
+                    if (cep[selector].c_uf || $( uf ).val()) {
 
                       // Verify if select options is set as default Brazilian state (Ex.: PR)
                       // If is not, compare name of each state and get the correct option value
@@ -142,20 +146,20 @@
                         $( uf ).find('option').removeAttr('disabled').removeAttr('selected');
 
                       });
-                      if (c_ibge || $( ibge ).val()) {
+                      if (cep[selector].c_ibge || $( ibge ).val()) {
 
                         $( ibge ).val( data.ibge ).trigger('change');
-                        if (typeof c_readonly === 'boolean' && c_readonly == true && data.ibge) $( ibge ).attr('readonly', 'readonly');
+                        if (typeof cep[selector].c_readonly === 'boolean' && cep[selector].c_readonly == true && data.ibge) $( ibge ).attr('readonly', 'readonly');
                         else $( ibge ).removeAttr('readonly');
 
                       }
 
-                      if (typeof c_readonly === 'boolean' && c_readonly == true) $( uf ).trigger('correios_clean_select');
+                      if (typeof cep[selector].c_readonly === 'boolean' && cep[selector].c_readonly == true) $( uf ).trigger('correios_clean_select');
                       $( uf ).find('option[value="'+data.uf+'"]').attr('selected', 'selected');
-                      if (typeof c_readonly === 'boolean' && c_readonly == true && data.uf) $( uf ).find(':not(:selected)').prop('disabled',true);
+                      if (typeof cep[selector].c_readonly === 'boolean' && cep[selector].c_readonly == true && data.uf) $( uf ).find(':not(:selected)').prop('disabled',true);
                       $( uf ).val(data.uf).trigger('change');
                       if (typeof $.fn.select2 !== 'undefined') $( uf ).select2();
-                      if(c_numero) $(c_numero).focus();
+                      if (!data.error && cep[selector].c_numero) $(cep[selector].c_numero).focus();
 
                     }
 
