@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://wmbr.s3.amazonaws.com/img/logo_webmaniabr_github.png">
+  <img src="https://wmbr.s3.amazonaws.com/img/logo_webmaniabr_github2.png">
 </p>
 
 
 # jQuery CEP Correios
 
-Utilize o jQuery da WebmaniaBR® para consultas Ajax nos Correios **com preenchimento automático do formulário**.
+Utilize o jQuery da Webmania®  para consultas Ajax nos Correios **com preenchimento automático do formulário**.
 
 - Documentação: https://webmaniabr.com/docs/rest-api-correios/
 
